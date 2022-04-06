@@ -16,4 +16,13 @@
     - npm run app
 
 ## Create Account for MongoDB Atlas
-    - 
+
+## Create Config Folder and Database Connection
+-----------------------------------------------
+
+## Create frontend folder
+## Install react in that folder
+## Add bootstrap to the site
+## Install react-router-dom Axios 
+## Create Components file
+
