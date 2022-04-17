@@ -7,45 +7,50 @@ class CreateBook extends Component {
     constructor() {
         super();
         this.state = {
-            title: '',
-            isbn: '',
-            author: '',
-            description: '',
-            published_date:'',
-            publisher:''
+            "title": '',
+            "isbn": '',
+            "author": '',
+            "description": '',
+            "published_date":'',
+            "publisher":''
         }
     }
 
     onChange = e => {
-        this.setState({ [e.target.name]: e.target.value })
+        this.setState({ [e.target.name]: e.target.value });
+        console.log(this.state);
     }
 
     onSubmit = e => {
         e.preventDefault();
         const data = {
-            title: this.state.title,
-            isbn: this.state.isbn,
-            author: this.state.author,
-            description: this.state.description,
-            published_date: this.state.published_date,
-            publisher: this.state.publisher
+            "title": this.state.title,
+            "isbn": this.state.isbn,
+            "author": this.state.author,
+            "description": this.state.description,
+            "published_date": this.state.published_date,
+            "publisher": this.state.publisher
         };
 
+        console.log(data);
+
         axios
-        .post('http://localhost/8082/api/books', data)
+        .post('http://localhost:8082/api/books', data)
         .then(res => {
             this.setState({
-                title: '',
-                isbn: '',
-                author: '',
-                description: '',
-                published_date: '',
-                publisher: ''
-            })
-            this.props.history.push('/')
+                "title": '',
+                "isbn": '',
+                "author": '',
+                "description": '',
+                "published_date": '',
+                "publisher": ''
+            });
+            
+            // this.props.history.push('/');
+
         })
         .catch(err => {
-            console.log("Error in CreateBook!")
+            console.log(err)
         })
     }
 
@@ -82,6 +87,28 @@ class CreateBook extends Component {
                                     />
                             </div>
                             <br />
+
+                            <div className="form-group">
+                                <input
+                                    type='author'
+                                    placeholder='Author'
+                                    name='author'
+                                    className='form-control'
+                                    value={this.state.author}
+                                    onChange={this.onChange}
+                                    />
+                            </div>
+
+                            <div className="form-group">
+                                <input
+                                    type='text'
+                                    placeholder='Description'
+                                    name='description'
+                                    className='form-control'
+                                    value={this.state.description}
+                                    onChange={this.onChange}
+                                    />
+                            </div>
 
                             <div className="form-group">
                                 <input

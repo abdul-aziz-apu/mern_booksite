@@ -13,10 +13,10 @@ class App extends Component {
     return (
       <Router>
         <Routes>
-          <Route exact path='/' component={ShowBookList} />
+          <Route exact path='/' element={<ShowBookList />} />
           <Route path='/create-book' element={<CreateBook />} />
-          <Route path='/edit-book/:id' component={UpdateBookInfo} />
-          <Route path='/show-book/:id' component={ShowBookDetails} />
+          <Route path='/edit-book/:id' element={<UpdateBookInfo />} />
+          <Route path='/show-book/:id' element={<ShowBookDetails />} />
         </Routes>
       </Router>
     )
